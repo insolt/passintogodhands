@@ -1,11 +1,23 @@
-import './scss/main.scss';
+import React from "react";
+import { 
+  Switch, 
+  HashRouter,
+  Route
+} from "react-router-dom";
+
+import Home from "./components/Home/Home";
 
 function App() {
   return (
-    <div>
+    <div className="App">
       
-       <h1>My name is Mike Born</h1>
-      
+      <HashRouter>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          {/* <Route path="/" component={} />
+          <Route path="/" component={} /> */}
+        </Switch>
+      </HashRouter>
     </div>
   );
 }
