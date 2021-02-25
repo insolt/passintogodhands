@@ -5,7 +5,11 @@ import {
   Route
 } from "react-router-dom";
 
-import Home from "./components/Home/Home";
+import Home from "./components/Home";
+import Login from "./components/Login";
+import Register from "./components/Register";
+import Logout from "./components/Logout";
+import Form from "./components/Form";
 
 function App() {
   return (
@@ -14,8 +18,10 @@ function App() {
       <HashRouter>
         <Switch>
           <Route exact path="/" component={Home} />
-          {/* <Route path="/" component={} />
-          <Route path="/" component={} /> */}
+          <Route path="/login" component={Login} />
+          <Route path="/register" component={Register} />
+          <Route path="/logout" component={Logout} />
+          <Route path="/form" component={Form} />
         </Switch>
       </HashRouter>
     </div>
