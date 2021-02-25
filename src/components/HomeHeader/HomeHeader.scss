@@ -1,0 +1,48 @@
+header {
+    width: 1900px;
+    height: 963px;
+    div.container {
+        height: 100%;
+        div.home_header {
+            height: 963px;
+            width: 1758px;
+            display: flex;
+            div.home_image {
+                width: 885px;
+                height: 100%;
+                background: url(../../assets/Home-Hero-Image.jpg) no-repeat right/cover;
+            }
+            div.home_guide {
+                width: calc(1750px - 885px);
+                height: 100%;
+                background-color: #fff;
+                padding-top: 37px;
+                section.home_login {
+                    width: 100%;
+                    height: 45px;
+                    text-align: right;
+                }
+                nav.home_nav {
+                    width: 100%;
+                    height: 45px;
+                }
+                section.home_into {
+                    width: 100%;
+                    margin-top: 200px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-items: center;
+                    align-items: center;
+                    div.title {
+                        width: 100%;
+                        height: 207px;
+                    }
+                    div.btn {
+                        width: 100%;
+                        height: 230px;
+                    }
+                }
+            }
+        }
+    }
+}

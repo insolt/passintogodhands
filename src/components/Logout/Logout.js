@@ -4,7 +4,7 @@ import "./Logout.scss";
 
 const Logout = () => {
     return(
-        <h1>Jestes wylogowany</h1>
+        <h1>Zostales wylogowany</h1>
     )
 }
 

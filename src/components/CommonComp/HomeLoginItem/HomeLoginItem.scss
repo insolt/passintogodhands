@@ -1,0 +1,10 @@
+button.login_btn {
+    background-color: #fff;
+    border: none;
+    padding: 10px;
+    margin-left: 20px;
+    &:hover {
+        border: 1px solid #fad648;
+        cursor: pointer;
+    }
+}

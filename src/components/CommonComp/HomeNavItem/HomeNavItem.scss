@@ -1,0 +1,11 @@
+li {
+    padding: 10px 0;
+    .active {
+        border: 1px solid #3c3c3c;
+        padding: 8px 24px;
+    }
+    &:hover {
+        font-weight: 700;
+        cursor: pointer;
+    }
+}

@@ -1,10 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import "./CommonButton.scss";
 
-const CommonButton = () => {
+const CommonButton = ({ text, to }) => {
     return(
-        null
+        <Link to={to}><button className="button">{text}</button></Link>
     )
 }
 
