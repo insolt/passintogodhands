@@ -15,7 +15,7 @@ const HomeContact = () => {
         email:'',
         message:''
     })
-    const [userMessage, setUserMessage] = useState()
+    // const [userMessage, setUserMessage] = useState()
     const contactEndPoint = 'https://fer-api.coderslab.pl/v1/portfolio/contact';
     
     useEffect(() => {
@@ -42,7 +42,7 @@ const HomeContact = () => {
             message: ''
         };
 
-        const EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        const EMAIL_REGEX = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
         if (form.name.length < 1 || form.name.indexOf(' ') > 0) {err.name = 'Name is required and shall exist as a single word';}
         if (!(EMAIL_REGEX.test(form.email))) {err.email = 'Not valid email';}

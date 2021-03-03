@@ -63,7 +63,7 @@ const HomeWhoWeHelp = () => {
                     console.log('Something is not correct...');
                 }
         }   
-    }, [page, activeFolder])
+    }, [page, activeFolder, startIndex])
 
     const pagesControl = (folder) => {
         let pagesTable = [];
