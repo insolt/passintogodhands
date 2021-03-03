@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import Instagram from "../../assets/Instagram.svg";
 import Facebook from "../../assets/Facebook.svg";
@@ -8,14 +8,21 @@ const HomeContact = () => {
     const [form, setForm] = useState({
         name: '',
         email: '',
-        msg: ''
+        message: ''
     });
     const [errors, setErrors] = useState({
         name:'',
         email:'',
-        msg:''
+        message:''
     })
-    const [userMsg, setUserMsg] = useState()
+    const [userMessage, setUserMessage] = useState()
+    const contactEndPoint = 'https://fer-api.coderslab.pl/v1/portfolio/contact';
+    
+    useEffect(() => {
+        
+
+    },[])
+
 
     const handleChange = ({ target: { name, value }}) => {
         setForm(prev => ({
@@ -32,14 +39,14 @@ const HomeContact = () => {
         const err = {
             name: '',
             email: '',
-            msg: ''
+            message: ''
         };
 
         const EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
         if (form.name.length < 1 || form.name.indexOf(' ') > 0) {err.name = 'Name is required and shall exist as a single word';}
         if (!(EMAIL_REGEX.test(form.email))) {err.email = 'Not valid email';}
-        if (form.msg.length < 120) {err.msg = 'Message is to short';}
+        if (form.message.length < 120) {err.message = 'Message is to short';}
        
         if (Object.values(err).find(el => !!el)) {
             setErrors(err)
@@ -53,16 +60,24 @@ const HomeContact = () => {
         if (!valid()) {
             return
         } else {
-            setUserMsg ({
-                name: form.name,
-                email: form.email,
-                msg: form.msg
+            // setUserMessage ({
+            //     name: form.name,
+            //     email: form.email,
+            //     message: form.message
+            // })
+            fetch(`${contactEndPoint}`, {
+                method: "POST",
+                body: JSON.stringify({...form}),
+                headers: {
+                    "Content-Type": "application/json"
+                }
             })
-
+                .then(resp => console.log(resp))
+                .catch(err => console.log(err));
         }
     }
 
-    console.log(userMsg);
+    
 
     return(
         <section id="contact">
@@ -74,7 +89,7 @@ const HomeContact = () => {
                                 Contact Us
                             </p>
                             <div className="contact_form_inputs">
-                                <form onSubmit={handleSubmit}>
+                                <form method="post" onSubmit={handleSubmit}>
                                     <div className="form_credentials">
                                         <div className="form_credentials_name">
                                             <label>Your name</label>
@@ -87,10 +102,10 @@ const HomeContact = () => {
                                             <div className="form_error">{errors.email}</div>
                                         </div>
                                     </div>
-                                    <div className="form_msg">
+                                    <div className="form_message">
                                         <label>Your message (min. 120 letters)</label>
-                                        <textarea name="msg" value={form.msg} onChange={handleChange} />
-                                        <div className="form_error">{errors.msg}</div>
+                                        <textarea name="message" value={form.message} onChange={handleChange} />
+                                        <div className="form_error">{errors.message}</div>
                                     </div>
                                     <div className="form_btn">
                                         <button className="form_btn_sub" type="submit">Send</button>
