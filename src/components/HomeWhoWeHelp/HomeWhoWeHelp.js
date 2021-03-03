@@ -39,33 +39,21 @@ const HomeWhoWeHelp = () => {
         switch (activeFolder) {
             case 'funds':
                 {
-                    let pagesTable = [];
-                    for (let i = 1; i <= Math.ceil(funds.length/elementsPerPage); i++)
-                    {
-                        pagesTable.push(i);
-                    }
+                    let pagesTable = pagesControl(funds);
                     setTableOfPages(pagesTable);
                     setOrgList(funds.slice(startIndex, startIndex + 3));
                     break;
                 }
             case 'nonGovOrgs': 
                 {
-                    let pagesTable = [];
-                    for (let i = 1; i <= Math.ceil(nonGovOrgs.length/elementsPerPage); i++)
-                    {
-                        pagesTable.push(i);
-                    }
+                    let pagesTable = pagesControl(nonGovOrgs);
                     setTableOfPages(pagesTable);
                     setOrgList(nonGovOrgs.slice(startIndex, startIndex + 3));
                     break;
                 }
             case 'localCollections':
                 {
-                    let pagesTable = [];
-                    for (let i = 1; i <= Math.ceil(localCollections.length/elementsPerPage); i++)
-                    {
-                        pagesTable.push(i);
-                    }
+                    let pagesTable = pagesControl(localCollections);
                     setTableOfPages(pagesTable);
                     setOrgList(localCollections.slice(startIndex, startIndex + 3));
                     break;
@@ -75,12 +63,21 @@ const HomeWhoWeHelp = () => {
                     console.log('Something is not correct...');
                 }
         }   
-    }, [page, activeFolder])
+    }, [page, activeFolder, startIndex])
 
+    const pagesControl = (folder) => {
+        let pagesTable = [];
+        for (let i = 1; i <= Math.ceil(folder.length/elementsPerPage); i++)
+        {
+            pagesTable.push(i);
+        }
+        return pagesTable;
+    }
 
     const handleClickFolder = (e) => {
         folderName.forEach(el => el.classList.remove('org_btn_active'));
         setActiveFolder(e.target.dataset.value);
+        setPage(1);
         e.target.classList.add('org_btn_active');
     }
 

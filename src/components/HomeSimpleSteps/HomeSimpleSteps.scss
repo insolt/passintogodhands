@@ -1,5 +1,6 @@
 @import "../../scss/settings/colors";
 section.simple_steps {
+    height: 65vh;
     div.container {
         div.simple_steps_title {
             height: 100px;
@@ -8,7 +9,7 @@ section.simple_steps {
             justify-content: center;
             align-items: center;
             background-color: #fff;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
             p {
                 font-size: 3em;
                 font-weight: 300;
@@ -20,7 +21,7 @@ section.simple_steps {
                 height: 33px;
                 background-image: url(../../assets/Decoration.svg);
                 left: calc(50% - 125px);
-                bottom: -10px;
+                bottom: -20px;
             }
         }
         div.simple_steps_steps {
