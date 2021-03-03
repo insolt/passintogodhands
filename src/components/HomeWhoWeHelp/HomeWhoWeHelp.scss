@@ -1,0 +1,116 @@
+section#org {
+    height: 100vh;
+    div.container {
+        height: 100%;
+        div.org {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            p.org_title {
+                width: 100%;
+                text-align: center;
+                font-size: 2.5em;
+                margin-top: 60px;
+                margin-bottom: 80px;
+                position: relative;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    width: 250px;
+                    height: 33px;
+                    background-image: url(../../assets/Decoration.svg);
+                    left: calc(50% - 125px);
+                    bottom: -60px;
+                }
+            }
+            div.org_pagin {
+                width: 100%;
+                height: 85vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                div.org_menu {
+                    width: 35%;
+                    ul.org_menu_list {
+                        padding: 0;
+                        width: 100%;
+                        font-size: 1.3em;
+                        list-style-type: none;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        .org_btn_element {
+                            width: 180px;
+                            height: 80px;
+                            text-align: center;
+                            padding: 0px;
+                            font-size: 1.2em;
+                            font-weight: 400;
+                            background-color: #fff;
+                            border: none;
+                            &:hover {
+                                cursor: pointer;
+                                border: none;
+                            }
+                            &:active {
+                                outline: none;
+                            }
+                        }
+                        .org_btn_active {
+                            border: 1px solid #000;
+                        }
+                    }
+                }
+                div.org_description {
+                    width: 30%;
+                    p.org_description_text {
+                        margin: 0;
+                        text-align: center;
+                        font-size: 1.2em;
+                        font-weight: 400;
+                        line-height: 1.6em;
+                    }
+                }
+            }
+            div.org_list {
+                width: 1344px;
+                height: 300px;
+                li.org_list_elem {
+                    list-style-type: none;
+                    border-bottom: 1px solid #000;
+                    &:nth-child(3n) {
+                        border-bottom: none;
+                    }
+                    &:hover {
+                        cursor: auto;
+                    }
+                }
+            }
+            div.org_pages {
+                width: 255px;
+                height: 50px;
+                text-align: center;
+                margin-bottom: 120px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                div.org_pages_element {
+                    margin: 0 20px;
+                    font-size: 1.4em;
+                    padding: 10px;
+                    &:hover {
+                        cursor: pointer;
+                        border: 1px solid #000;
+                    }
+                }
+                .page_active {
+                    border: 1px solid #000;
+                }
+            }
+        }
+    }
+}

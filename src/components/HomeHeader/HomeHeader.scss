@@ -1,10 +1,10 @@
-header {
-    width: 1900px;
-    height: 963px;
+header#home_start {
+    width: 99vw;
+    height: 100vh;
     div.container {
         height: 100%;
         div.home_header {
-            height: 963px;
+            height: 100%;
             width: 1758px;
             display: flex;
             div.home_image {
@@ -13,8 +13,8 @@ header {
                 background: url(../../assets/Home-Hero-Image.jpg) no-repeat right/cover;
             }
             div.home_guide {
-                width: calc(1750px - 885px);
-                height: 100%;
+                width: 865px;
+                height: 90%;
                 background-color: #fff;
                 padding-top: 37px;
                 section.home_login {
@@ -26,20 +26,35 @@ header {
                     width: 100%;
                     height: 45px;
                 }
-                section.home_into {
-                    width: 100%;
-                    margin-top: 200px;
+                div.home_intro {
+                    width: 85%;
                     display: flex;
                     flex-direction: column;
                     justify-items: center;
                     align-items: center;
                     div.title {
                         width: 100%;
-                        height: 207px;
+                        margin-top: 150px;
+                        position: relative;
+                        p {
+                            font-size: 2.5em;
+                            text-align: center;
+                        }
+                        &::after {
+                            content: "";
+                            position: absolute;
+                            width: 250px;
+                            height: 33px;
+                            background-image: url(../../assets/Decoration.svg);
+                            left: 33%;
+                            bottom: -15px;
+                        }
                     }
                     div.btn {
-                        width: 100%;
-                        height: 230px;
+                        width: 80%;
+                        margin-top: 70px;
+                        display: flex;
+                        justify-content: space-between;
                     }
                 }
             }

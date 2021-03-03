@@ -10,7 +10,7 @@ const HomeNav = () => {
             <HomeNavItem text="Start" to="home_start"/>
             <HomeNavItem text="What's the matter?" to="whats-on"/>
             <HomeNavItem text="About Us" to="about-us"/>
-            <HomeNavItem text="Organizations" to="organizations"/>
+            <HomeNavItem text="Organizations" to="org"/>
             <HomeNavItem text="Contact" to="contact"/>
         </ul>
     )

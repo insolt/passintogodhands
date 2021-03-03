@@ -19,15 +19,15 @@ const HomeHeader = () => {
                         <nav className="home_nav">
                             <HomeNav />
                         </nav>
-                        <section className="home_intro">
+                        <div className="home_intro">
                             <div className="title">
-                                <p>Help to the others! Pass some useless belongings to people in needs</p>
+                                <p>Help to the others! <br/>Pass some useless belongings to people in needs</p>
                             </div>
                             <div className="btn">
                                 <CommonButton text="Pass items" to="/login" />
                                 <CommonButton text="Organize collection" to="/login" />
                             </div>
-                        </section>
+                        </div>
                     </div>
                 </div>
             </div>

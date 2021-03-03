@@ -5,7 +5,7 @@ import "./HomeNavItem.scss";
 
 const HomeNavItem = ({ text, to }) => {
     return(
-        <li><Link activeClass="active" to={to} spy={true} smooth={true} offset={-120} duration={800}>{text}</Link></li>
+        <li><Link activeClass="active" to={to} spy={true} smooth={true} offset={0} duration={800}>{text}</Link></li>
     )
 }
 

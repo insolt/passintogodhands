@@ -6,10 +6,10 @@ import "./HomeLogin.scss";
 
 const HomeLogin = () => {
     return(
-        <>
+        <ul className="home_login">
             <HomeLoginItem text="Login" to="/login"/>
             <HomeLoginItem text="Sign in" to="/register"/>
-        </>
+        </ul>
     )
 }
 

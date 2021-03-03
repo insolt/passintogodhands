@@ -3,6 +3,7 @@ ul.home_login {
     height: 100%;
     list-style-type: none;
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-end;
     align-items: center;
+    padding-left: 10px;
 }

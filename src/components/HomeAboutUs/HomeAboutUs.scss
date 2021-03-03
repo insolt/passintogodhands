@@ -1,0 +1,66 @@
+@import "../../scss/settings/colors";
+section#about-us {
+    width: 99vw;
+    div.container {
+        height: 100%;
+        div.about_us {
+            height: 100vh;
+            display: flex;
+            div.about_us-msg {
+                width: 958px;
+                height: 100%;
+                padding-top: 0;
+                background-color: $color-bg;
+                display: flex;
+                flex-direction: column;
+                justify-content: start;
+                align-items: center;
+                p.about_us-msg_title {
+                    width: 660px;
+                    text-align: center;
+                    font-size: 2.5em;
+                    margin: 150px 0 80px 0;
+                    position: relative;
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        width: 250px;
+                        height: 33px;
+                        background-image: url(../../assets/Decoration.svg);
+                        left: calc(50% - 125px);
+                        bottom: -60px;
+                    }
+                }
+                p.about_us-msg_text {
+                    width: 660px;
+                    text-align: center;
+                    line-height: 2em;
+                    font-size: 2em;
+                    position: relative;
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        width: 200px;
+                        height: 145px;
+                        background-image: url(../../assets/Signature.svg);
+                        left: 60%;
+                        bottom: -200px;
+                    }
+                }
+            }
+            div.about_us-photo {
+                width: 942px;
+                height: 100%;
+                display: flex;
+                justify-content: start;
+                align-items: start;
+                overflow: hidden;
+                picture {
+                    img {
+                        height: 100vh;
+                    }
+                }
+            }
+        }
+    }
+}

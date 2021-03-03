@@ -5,7 +5,7 @@ import "./CommonButton.scss";
 
 const CommonButton = ({ text, to }) => {
     return(
-        <Link to={to}><button className="button">{text}</button></Link>
+        <Link to={to}><button className="home_button">{text}</button></Link>
     )
 }
 
