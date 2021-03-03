@@ -1,0 +1,92 @@
+@import "../../scss/settings/colors";
+section.simple_steps {
+    div.container {
+        div.simple_steps_title {
+            height: 100px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
+            margin-bottom: 40px;
+            p {
+                font-size: 3em;
+                font-weight: 300;
+            }
+            &::after {
+                content: "";
+                position: absolute;
+                width: 250px;
+                height: 33px;
+                background-image: url(../../assets/Decoration.svg);
+                left: calc(50% - 125px);
+                bottom: -10px;
+            }
+        }
+        div.simple_steps_steps {
+            height: 280px;
+            background-color: $color-bg;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            div.simple_steps_steps-items {
+                width: 1200px;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                div.simple_steps_item {
+                    width: 164px;
+                    height: 195px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: start;
+                    align-items: center;
+                    text-align: center;
+                    div.simple_steps_icon-item {
+                        width: 80px;
+                        height: 80px;
+                        background-image: url(../../assets\Icon-1.svg);
+                    }
+                    div.simple_steps_icon-bag {
+                        width: 80px;
+                        height: 83px;
+                        background-image: url(../../assets\Icon-2.svg);
+                    }
+                    div.simple_steps_icon-find {
+                        width: 80px;
+                        height: 80px;
+                        background-image: url(../../assets\Icon-3.svg);
+                    }
+                    div.simple_steps_icon-send {
+                        width: 80px;
+                        height: 80px;
+                        background-image: url(../../assets\Icon-4.svg);
+                    }
+                    p.simple_steps_action {
+                        margin: 20px 0 0 0;
+                        position: relative;
+                        &::after {
+                            content: "";
+                            position: absolute;
+                            width: 50px;
+                            height: 2px;
+                            border-bottom: 1px solid #000;
+                            left: calc(50% - 25px);
+                            bottom: -15px;
+                        }
+                    }
+                    p.simple_steps_how {
+                        margin: 25px 0 0 0;
+                    }
+                }
+            }
+        }
+        div.simple_steps_btn {
+            height: 200px;
+            padding-bottom: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}

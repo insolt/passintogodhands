@@ -5,3 +5,8 @@
 body {
     font-family: $font-base;
 }
+
+div.container {
+    min-width: 1900px;
+    margin: 0 auto;
+}

@@ -1,0 +1,14 @@
+@import "../../../scss/settings/colors";
+li {
+    padding: 10px 0;
+    font-size: 1.1em;
+    &:hover {
+        border-bottom: 1px solid $color-links;
+        padding-bottom: 9px;
+        cursor: pointer;
+    }
+    .active {
+        border: 1px solid $color-links;
+        padding: 7px 24px;
+    }
+}

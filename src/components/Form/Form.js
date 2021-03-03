@@ -1,11 +1,13 @@
-import React from "react";
+import React from 'react';
 
 import "./Form.scss";
 
 const Form = () => {
-    return(
-        <h1>To jest formularz</h1>
-    )
+    return (
+        <div>
+            To jest formularz
+        </div>
+    );
 }
 
 export default Form;

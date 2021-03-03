@@ -4,7 +4,7 @@ import "./Login.scss";
 
 const Login = () => {
     return(
-        <h1>To jest ekran logowania</h1>
+        <h1>Tu bedzie ekran logowania</h1>
     )
 }
 

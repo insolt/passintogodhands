@@ -1,0 +1,17 @@
+@import "../../../scss/settings/colors";
+@import "../../../scss/settings/fonts";
+button.login_btn {
+    background-color: #fff;
+    border: none;
+    padding: 10px;
+    margin-left: 20px;
+    font-size: 0.9em;
+    &:hover {
+        border: 1px solid $color-warr;
+        padding: 9px;
+        cursor: pointer;
+    }
+    &:focus {
+        outline: none;
+    }
+}
