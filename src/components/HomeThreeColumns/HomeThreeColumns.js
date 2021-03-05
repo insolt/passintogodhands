@@ -6,7 +6,7 @@ const HomeThreeColumns = () => {
     return(
         <section id="whats-on">
             <div className="container">
-                <div class="stats_three_columns">
+                <div className="stats_three_columns">
                     <div className="stats_items">
                         <p className="stats_value">10</p>
                         <h3 className="stats_title">Bags passed</h3>

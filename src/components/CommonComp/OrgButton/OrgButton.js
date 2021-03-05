@@ -2,7 +2,7 @@ import React from 'react';
 
 import "./OrgButton.scss";
 
-const OrgButton = ({ organization, desc, onDone }) => {
+const OrgButton = ({ index, desc, onDone }) => {
     
     const handleClick = (e) => {
         onDone(e)
@@ -10,7 +10,7 @@ const OrgButton = ({ organization, desc, onDone }) => {
 
 
     return (
-        <button data-value={organization} className="org_btn" onClick={handleClick}>{desc}</button>
+        <button data-value={index} className="org_btn" onClick={handleClick}>{desc}</button>
     );
 }
 

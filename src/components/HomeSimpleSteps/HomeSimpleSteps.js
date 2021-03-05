@@ -6,7 +6,7 @@ import "./HomeSimpleSteps.scss";
 
 const HomeSimpleSteps = () => {
     return(
-        <section class="simple_steps">
+        <section className="simple_steps">
             <div className="container">
                 <div className="simple_steps_title">
                     <p>Take 4 simple steps</p>
