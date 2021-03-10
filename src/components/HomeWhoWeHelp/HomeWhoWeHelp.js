@@ -9,10 +9,9 @@ import "./HomeWhoWeHelp.scss";
 
 const HomeWhoWeHelp = () => {
     const myFolders = [funds, nonGovOrgs, localCollections];
-    const [shownOrganizationsList, setShownOrganizationsList] = useState([myFolders[0][0], myFolders[0][1], myFolders[0][2]]);
-    const [activeFolder, setActiveFolder] = useState('funds');
-    const [arrayOfPages, setArrayOfPages] = useState([1, 2, 3]);
-    const [firstRenderedContent, setFirstRenderedContent] = useState(false);
+    const [shownOrganizationsList, setShownOrganizationsList] = useState([]);
+    const [activeFolder, setActiveFolder] = useState();
+    const [arrayOfPages, setArrayOfPages] = useState([]);
     const folders = [
         {
             id: 1,
@@ -33,28 +32,31 @@ const HomeWhoWeHelp = () => {
     const pageNumbers = document.querySelectorAll('.org_pages_element');
     const folderNames = document.querySelectorAll('.org_btn');
     
+    
     /**
-     * Initial section state
-     */
-    if (!firstRenderedContent && pageNumbers.length && folderNames.length) {
-        setShownOrganizationsList(funds);
-        // setArrayOfPages(() => {
-        //     let pagesArray = [];
-        //     for (let i = 1; i <= Math.ceil(funds.length/elementsPerPage); i++)
-        //     {
-        //         pagesArray.push(i);
-        //     }
-        //     return pagesArray;
-        // })
-        // pageNumbers.classList.add('page_active');
-        // folderNames.classList.add('org_btn_active');
-        setFirstRenderedContent(true);
-    } 
-    
+     * Initial  state
+    */
+    useEffect(() => {    
+        
+        if (folderNames.length && pageNumbers.length) {
+            pageNumbers.forEach(el => el.classList.remove('page_active'));
+            folderNames.forEach(el => el.classList.remove('org_btn_active'));
+            folderNames[0].classList.add('org_btn_active');
+            pageNumbers[0].classList.add('page_active');  
+        }
 
-  
-    
-    
+        setActiveFolder(myFolders[0]);
+        setShownOrganizationsList(myFolders[0].slice(0, elementsPerPage))
+
+        let myArr = [];
+        for (let i = 1; i <= (Math.ceil((myFolders[0].length)/elementsPerPage)); i++) {
+            myArr.push(i);
+        }
+        setArrayOfPages(myArr);
+              
+    }, [])
+
+
 
     const handleClickFolder = (e) => {
         setActiveFolder(myFolders[+e.target.dataset.value-1]);
@@ -77,8 +79,6 @@ const HomeWhoWeHelp = () => {
         }
     }
 
-    
-
     const handleClickPage = (e) => {
         let orgListStartIndex = (+e.target.dataset.value - 1) * elementsPerPage;
         let orgListEndIndex = (+e.target.dataset.value - 1) * elementsPerPage + elementsPerPage;
@@ -87,10 +87,7 @@ const HomeWhoWeHelp = () => {
         pageNumbers.forEach(el => el.classList.remove('page_active'));
         e.target.classList.add('page_active');
     }
-    
 
-
-    
 
     return(
         <section id="org">
@@ -102,7 +99,7 @@ const HomeWhoWeHelp = () => {
                     <div className="org_pagin">
                         <div className="org_menu">
                             <ul className="org_menu_list">
-                                {folders.map(el => (<OrgButton key={el.id} className="org_btn_element" index={el.id} desc={el.desc} onDone={handleClickFolder}  />))}
+                                {folders.map(el => (<OrgButton key={el.id} className="org_btn_element" index={el.id} desc={el.desc}  onDone={handleClickFolder}  />))}
                             </ul>
                         </div>
                       
