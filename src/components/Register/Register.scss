@@ -1,0 +1,127 @@
+@import "../../scss/settings/colors";
+header#register_start {
+    width: 99vw;
+    height: 100vh;
+    div.container {
+        height: 100%;
+        div.register_header {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            div.register_guide {
+                display: flex;
+                justify-content: flex-end;
+                div.register_guide_menus {
+                    width: 850px;
+                    height: 150px;
+                    background-color: #fff;
+                    padding: 37px 80px 0 0;
+                    section.register_login {
+                        width: 100%;
+                        height: 45px;
+                        text-align: right;
+                    }
+                    nav.register_nav {
+                        width: 100%;
+                        height: 45px;
+                    }
+                }
+            }
+            div.register_form {
+                width: 100%;
+                height: 670px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                div.register_form_title {
+                    width: 100%;
+                    width: 190px;
+                    height: 95px;
+                    position: relative;
+                    margin-bottom: 100px;
+                    p {
+                        font-weight: 400;
+                        font-size: 2.5em;
+                        text-align: center;
+                        margin-top: 90px;
+                    }
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        width: 250px;
+                        height: 33px;
+                        background-image: url(../../assets/Decoration.svg);
+                        left: calc(50% - 125px);
+                        bottom: -100px;
+                    }
+                }
+                div.register_form_inputs {
+                    width: 384px;
+                    height: 328px;
+                    background-color: #F0F1F1;
+                    form {
+                        width: 100%;
+                        height: 100%;
+                        div.register_form_credentials {
+                            height: 100%;
+                            width: 100%;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: flex-end;
+                            align-items: center;
+                            margin-bottom: 40px;
+                            div.register_form_credentials_email,
+                            div.register_form_credentials_password,
+                            div.register_form_credentials_repeatPassword {
+                                width: 256px;
+                                height: 62px;
+                                margin-bottom: 35px;
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: space-between;
+                                label {
+                                    width: 60%;
+                                }
+                                input {
+                                    width: 256px;
+                                    line-height: 2.5em;
+                                    border: none;
+                                    border-bottom: 1px solid #000;
+                                    background-color: transparent;
+                                }
+                                div.register_form_error {
+                                    font-size: .7em;
+                                    color: tomato;
+                                }
+                            }
+                        }
+                    }
+                }
+                div.register_btns {
+                    width: 504px;
+                    height: 50px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    button.register_form_btn_sub {
+                        background-color: #fff;
+                        border: none;
+                        padding: 10px;
+                        margin-left: 20px;
+                        font-size: 0.9em;
+                        &:hover {
+                            border: 1px solid #000;
+                            padding: 9px;
+                            cursor: pointer;
+                        }
+                        &:focus {
+                            outline: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
