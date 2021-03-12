@@ -52,9 +52,13 @@ section#org {
                             font-weight: 400;
                             background-color: #fff;
                             border: none;
+                            display:flex;
+                            justify-content: center;
+                            align-items: center;
                             &:hover {
                                 cursor: pointer;
-                                border: none;
+                                border: 1px solid #000;
+                                width: 178px;
                             }
                             &:active {
                                 outline: none;

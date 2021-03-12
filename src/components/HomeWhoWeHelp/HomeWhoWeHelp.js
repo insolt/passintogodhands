@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from 'react';
 
-import OrgButton from "../CommonComp/OrgButton";
 import OrgsListItem from "../CommonComp/OrgsListItem";
 import funds from "./Funds.js";
 import nonGovOrgs from "./NonGovOrgs.js";
@@ -8,10 +7,7 @@ import localCollections from "./LocalCollections.js";
 import "./HomeWhoWeHelp.scss";
 
 const HomeWhoWeHelp = () => {
-    const myFolders = [funds, nonGovOrgs, localCollections];
-    const [shownOrganizationsList, setShownOrganizationsList] = useState([]);
-    const [activeFolder, setActiveFolder] = useState();
-    const [arrayOfPages, setArrayOfPages] = useState([]);
+    const organizations = [funds, nonGovOrgs, localCollections]; 
     const folders = [
         {
             id: 1,
@@ -29,64 +25,44 @@ const HomeWhoWeHelp = () => {
             desc: "Local Collections"
         }];
     const elementsPerPage = 3;
-    const pageNumbers = document.querySelectorAll('.org_pages_element');
-    const folderNames = document.querySelectorAll('.org_btn');
     
-    
-    /**
-     * Initial  state
-    */
-    useEffect(() => {    
-        
-        if (folderNames.length && pageNumbers.length) {
-            pageNumbers.forEach(el => el.classList.remove('page_active'));
-            folderNames.forEach(el => el.classList.remove('org_btn_active'));
-            folderNames[0].classList.add('org_btn_active');
-            pageNumbers[0].classList.add('page_active');  
-        }
-
-        setActiveFolder(myFolders[0]);
-        setShownOrganizationsList(myFolders[0].slice(0, elementsPerPage))
-
-        let myArr = [];
-        for (let i = 1; i <= (Math.ceil((myFolders[0].length)/elementsPerPage)); i++) {
-            myArr.push(i);
-        }
-        setArrayOfPages(myArr);
-              
-    }, [])
-
-
+    const [activeFolder, setActiveFolder] = useState(1);
+    const [shownOrganizationsList, setShownOrganizationsList] = useState(organizations[0].slice(0, 3));
+    const [arrayOfPages, setArrayOfPages] = useState([
+        {
+            id: 1,
+            page: 1
+        },
+        {
+            id: 2,
+            page: 2
+        },
+        {
+            id: 3,
+            page: 3
+        }]);
+    const [activePage, setActivePage] = useState(1);
+   
 
     const handleClickFolder = (e) => {
-        setActiveFolder(myFolders[+e.target.dataset.value-1]);
-        setShownOrganizationsList(myFolders[+e.target.dataset.value-1].slice(0, elementsPerPage))
+        setActiveFolder(+e.target.dataset.value);
+        setShownOrganizationsList(organizations[+e.target.dataset.value-1].slice(0, elementsPerPage))
 
         let myArr = [];
-        for (let i = 1; i <= (Math.ceil((myFolders[+e.target.dataset.value-1].length)/elementsPerPage)); i++) {
-            myArr.push(i);
+        for (let i = 1; i <= (Math.ceil((organizations[+e.target.dataset.value-1].length)/elementsPerPage)); i++) {
+            myArr.push({id: i, page: i});
         }
         setArrayOfPages(myArr);
-
-        if (folderNames.length) {
-            folderNames.forEach(el => el.classList.remove('org_btn_active'));
-            folderNames[+e.target.dataset.value-1].classList.add('org_btn_active');
-        }
-        
-        if (pageNumbers.length) {
-        pageNumbers.forEach(el => el.classList.remove('page_active'));
-        pageNumbers[0].classList.add('page_active');
-        }
+        setActivePage(1);
     }
 
     const handleClickPage = (e) => {
-        let orgListStartIndex = (+e.target.dataset.value - 1) * elementsPerPage;
-        let orgListEndIndex = (+e.target.dataset.value - 1) * elementsPerPage + elementsPerPage;
-        setShownOrganizationsList(activeFolder.slice(orgListStartIndex, orgListEndIndex));
-
-        pageNumbers.forEach(el => el.classList.remove('page_active'));
-        e.target.classList.add('page_active');
+        let startIndex = (+e.target.dataset.value - 1) * elementsPerPage;
+        let endIndex = (+e.target.dataset.value - 1) * elementsPerPage + elementsPerPage;
+        setShownOrganizationsList(organizations[activeFolder-1].slice(startIndex, endIndex));
+        setActivePage(+e.target.dataset.value);
     }
+
 
 
     return(
@@ -99,7 +75,9 @@ const HomeWhoWeHelp = () => {
                     <div className="org_pagin">
                         <div className="org_menu">
                             <ul className="org_menu_list">
-                                {folders.map(el => (<OrgButton key={el.id} className="org_btn_element" index={el.id} desc={el.desc}  onDone={handleClickFolder}  />))}
+                                {
+                                    folders.map(el => (<li key={el.id} className={el.id === activeFolder ? "org_btn_element org_btn_active" : "org_btn_element"} data-value={el.id} desc={el.desc} onClick={handleClickFolder}>{el.desc}</li>))
+                                }
                             </ul>
                         </div>
                       
@@ -116,7 +94,7 @@ const HomeWhoWeHelp = () => {
                              )}
                         </div>
                         <div className="org_pages">
-                            {arrayOfPages.map(el => <div className="org_pages_element" key={el} data-value={el} onClick={handleClickPage}>{el}</div>)}
+                            {arrayOfPages.map(el => <div className={el.page === activePage ? "org_pages_element page_active" : "org_pages_element"} key={el.id} data-value={el.id} onClick={handleClickPage}>{el.page}</div>)}
                         </div>
                     </div>
                 </div>                
