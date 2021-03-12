@@ -46,7 +46,7 @@ const HomeContact = () => {
 
         if (form.name.length < 1 || form.name.indexOf(' ') > 0) {err.name = 'Name is required and shall exist as a single word';}
         if (!(EMAIL_REGEX.test(form.email))) {err.email = 'Not valid email';}
-        if (form.message.length < 120) {err.message = 'Message is to short';}
+        if (form.message.length < 12) {err.message = 'Message is to short';}
        
         if (Object.values(err).find(el => !!el)) {
             setErrors(err)
